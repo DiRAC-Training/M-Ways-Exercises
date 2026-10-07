@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
   ///////////////////Input Details//////////////////////////////////////////////
   inconf = 10;
   nbin = 2000;
-  file = "/opt/course-data/alk.traj.dcd";
+  file = "../../_common/input/alk.traj.dcd";
   //////////////////////////////////////////////////////////////////////////////
 
   std::ifstream infile;
