@@ -2,9 +2,13 @@
 
 CC := nvc++
 CFLAGS := -O3 -w -ldl
-VER=$(shell nvc -dumpversion)
-NVARCH=$(shell uname -s)_$(shell uname -m)
-NVTXLIB_c := -I/opt/nvidia/hpc_sdk/$(NVARCH)/$(VER)/cuda/include
+# Root of the NVIDIA HPC SDK release in use, for example
+# /opt/nvidia/hpc_sdk/Linux_x86_64/26.5. If NVHPC_ROOT is already set in the
+# environment (the course image sets it, and so do NVIDIA's "nvhpc" modules)
+# that value is used; otherwise it is worked out from where nvc++ is on PATH.
+# Nothing here names an SDK version or an install location.
+NVHPC_ROOT ?= $(abspath $(dir $(shell command -v nvc++ 2>/dev/null))../..)
+NVTXLIB_c := -I$(NVHPC_ROOT)/cuda/include
 
 FC := nvfortran
 FLAGS := -O3 -w 
