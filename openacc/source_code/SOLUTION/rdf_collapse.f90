@@ -67,7 +67,7 @@ program rdf
 
   !*****************Input Details*********************************************
   parameter (maxframes = 10, nbin = 2000)
-  filename = '/opt/course-data/alk.traj.dcd'
+  filename = '../../_common/input/alk.traj.dcd'
   !***************************************************************************
 
   open(23, file='RDF.dat', status='unknown')
