@@ -80,7 +80,7 @@ int main(int argc, char *argv[]) {
   box = std::min(box, zbox);
   double del = box / (2.0 * nbin);
 
-  ///////////////////This is where we will concentrate//////////////////////////
+  ///////////////////This is where we will concentrate when using the data directive //////////////////////////
   nvtxRangePush("Pair_Calculation");
   pair_gpu(h_x, h_y, h_z, h_g, numatm, nconf, xbox, ybox, zbox, box, del);
   nvtxRangePop();

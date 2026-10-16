@@ -80,7 +80,7 @@ int main(int argc, char *argv[]) {
   box = std::min(box, zbox);
   double del = box / (2.0 * nbin);
 
-  ///////////////////This is where we will concentrate//////////////////////////
+  ///////////////////This is where we will concentrate when using the data directive //////////////////////////
 #pragma acc data copy(h_g[0 : nbin]) copyin(                                   \
     h_x[0 : nconf * numatm], h_z[0 : nconf * numatm], h_y[0 : nconf * numatm])
   {
