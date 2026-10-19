@@ -101,7 +101,7 @@ program rdf
   box = min(box, zbox)
   del = box / dble(2.0 * nbin)
 
-  !******************This is where we will concentrate************************
+  !******************This is where we will concentrate when using the data directive ************************
   call nvtxStartRange("Pair Calculation")
   call pair_gpu(h_x, h_y, h_z, h_g, natoms, nframes, xbox, ybox, zbox, box, del)
   call nvtxEndRange

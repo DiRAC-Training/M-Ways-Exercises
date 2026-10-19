@@ -101,7 +101,7 @@ program rdf
   box = min(box, zbox)
   del = box / dble(2.0 * nbin)
 
-  !******************This is where we will concentrate************************
+  !******************This is where we will concentrate when using the data directive ************************
   !$acc data copy(h_g(0:nbin)) copyin(h_x(0:nframes * natoms), &
   !$acc h_y(0:nframes * natoms), h_z(0:nframes * natoms))
   call nvtxStartRange("Pair Calculation")
