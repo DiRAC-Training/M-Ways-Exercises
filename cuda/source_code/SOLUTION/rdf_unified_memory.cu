@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
   ///////////////////Input Details//////////////////////////////////////////////
   inconf = 10;
   nbin = 2000;
-  file = "../../_common/input/alk.traj.dcd";
+  file = "/opt/course-data/alk.traj.dcd";
   device = 0;
   cudaSetDevice(device); // Note: pick the device to use
   //////////////////////////////////////////////////////////////////////////////
