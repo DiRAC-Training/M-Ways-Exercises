@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
   unsigned int sizef = nconf * numatm * sizeof(float);
   unsigned int sizebin = nbin * sizeof(unsigned int);
 
-  // TODO (only managed): Replace host malloc with cuda managed memeory using 
+  // TODO (Exercise 1, managed memory): Replace host malloc with cuda managed memeory using 
   // cudaMallocManaged(&h_var, size);
   h_x = (float *)malloc(sizef);
   h_y = (float *)malloc(sizef);
@@ -89,10 +89,10 @@ int main(int argc, char *argv[]) {
   double del = box / (2.0 * nbin);
 
   ///////////////////This is where we will concentrate//////////////////////////
-  // TODO (only unmanaged): Allocate memory for device (GPU) using 
+  // TODO (Exercise 2, explicit memory): Allocate memory for device (GPU) using 
   // cudaMalloc((void **)&d_var, size);
 
-  // TODO (only unmanaged): Copy the required data from Host to Device before 
+  // TODO (Exercise 2, explicit memory): Copy the required data from Host to Device before 
   // calculation on GPU using cudaMemcpy(d_var, h_var, size, cudaMemcpyHostToDevice);
 
   // Note: Defines the number of threads per block and the number of blocks in
@@ -114,7 +114,7 @@ int main(int argc, char *argv[]) {
   // Note: Syncing Host and Device
   cudaDeviceSynchronize();
     
-  // TODO (only unmanaged): Copy the required data from Device to Host after 
+  // TODO (Exercise 2, explicit memory): Copy the required data from Device to Host after 
   // calculation on GPU using cudaMemcpy(h_var, d_var, size, cudaMemcpyDeviceToHost);
   //////////////////////////////////////////////////////////////////////////////
 
@@ -166,13 +166,13 @@ int main(int argc, char *argv[]) {
   stwo << "s2bond value is " << s2bond << std::endl;
   //////////////////////////////////////////////////////////////////////////////
 
-  // TODO (only managed): Deallocate managed memory using // cudaFree(var);
+  // TODO (Exercise 1, managed memory): Deallocate managed memory using // cudaFree(var);
   free(h_x);
   free(h_y);
   free(h_z);
   free(h_g);
 
-  // TODO (only unmanaged): Deallocate memory for device (GPU) using
+  // TODO (Exercise 2, explicit memory): Deallocate memory for device (GPU) using
   // cudaFree(d_var);
 
   pairfile.close();
@@ -201,7 +201,7 @@ int main(int argc, char *argv[]) {
     if (id1 < numatm && id2 < numatm) {
       dx = d_x[frame * numatm + id1] - d_x[frame * numatm + id2];
       dy = d_y[frame * numatm + id1] - d_y[frame * numatm + id2];
-      dz = d_z[frame * numatm + id1] - d_z[frame * numhfhfgatm + id2];
+      dz = d_z[frame * numatm + id1] - d_z[frame * numatm + id2];
 
       dx = dx - xbox * (std::round(dx / xbox));
       dy = dy - ybox * (std::round(dy / ybox));
